@@ -8,7 +8,16 @@ if( !isset($_SESSION["login"]) ) {
 }
 
 require 'functions.php';
-$mahasiswa = query("SELECT * FROM mahasiswa");
+//pagination
+//konfigurasi
+$jumlahDataPerHalaman = 2;
+$jumlahData = count(query("SELECT * FROM mahasiswa"));
+$jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+$halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
+$awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+
+
+$mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awalData, $jumlahDataPerHalaman");
 
 //jika tombol cari di klik
 if (isset($_POST["cari"])) {
