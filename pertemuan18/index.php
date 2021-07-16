@@ -46,6 +46,23 @@ if (isset($_POST["cari"])) {
         <input type="text" name="keyword" size="35" autofocus placeholder="masukan keyword pencarian" autocomplete="off">
         <button type="submit" name="cari">Cari</button>
     </form>
+    <br>
+    <br>
+    <!-- Navigasi -->
+    <?php if( $halamanAktif > 1) : ?>
+        <a href="?halaman=<?= $halamanAktif - 1?>">&laquo;</a>
+    <?php endif ?>
+    <?php for( $i=1; $i <= $jumlahHalaman; $i++): ?>
+        <?php if( $i == $halamanAktif ): ?>
+            <a href="?halaman=<?= $i ?>" style="font-weight: bold; color:red;"><?= $i ?></a>
+        <?php else : ?>
+            <a href="?halaman=<?= $i ?>"><?= $i ?></a>
+        <?php endif ?>
+    <?php endfor ?>
+
+    <?php if( $halamanAktif < $jumlahHalaman) : ?>
+        <a href="?halaman=<?= $halamanAktif + 1?>">&raquo;</a>
+    <?php endif ?>
     <br><br>
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
