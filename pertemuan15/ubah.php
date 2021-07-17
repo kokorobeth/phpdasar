@@ -54,7 +54,7 @@ if (isset($_POST["submit"])) {
             </li>
             <li>
                 <label for="email">Email : </label>
-                <input type="text" name="email" id="namemaila" value="<?= $mhs["email"]; ?>">
+                <input type="text" name="email" id="email" value="<?= $mhs["email"]; ?>">
             </li>
             <li>
                 <label for="jurusan">Jurusan : </label>

@@ -38,26 +38,26 @@ if(isset($_POST['submit'])) {
     <form action="" method="post" enctype="multipart/form-data">
     <table border="0" cellpadding="10" cellspacing="0">
         <tr>
-            <td><input type="hidden" name="id" id="id" value=<?= $mhs['id']?>></td>
+            <td><input type="hidden" name="id" value="<?= $mhs['id']?>>"</td>
         </tr>
         <tr>
-            <td><input type="hidden" name="gambarLama" id="id" value=<?= $mhs['gambar']?>></td>
+            <td><input type="hidden" name="gambarLama" value="<?= $mhs['gambar']?>"></td>
         </tr>
         <tr>
             <td><label for="nrp">NRP</label></td>
-            <td><input type="text" name="nrp" id="nrp" required value=<?= $mhs['nrp']?>></td>
+            <td><input type="text" name="nrp" id="nrp" required value="<?= $mhs['nrp']?>"></td>
         </tr>
         <tr>
             <td><label for="nama">Nama</label></td>
-            <td><input type="text" name="nama" id="name" value=<?= $mhs['nama']?>></td>
+            <td><input type="text" name="nama" id="nama" value="<?= $mhs['nama']?>"></td>
         </tr>
         <tr>
             <td><label for="email">Email</label></td>
-            <td><input type="text" name="email" id="email" value=<?= $mhs['email']?>></td>
+            <td><input type="text" name="email" id="email" value="<?= $mhs['email']?>"></td>
         </tr>
         <tr>
             <td><label for="jurusan">Jurusan</label></td>
-            <td><input type="text" name="jurusan" id="jurusan" value=<?= $mhs['jurusan']?>></td>
+            <td><input type="text" name="jurusan" id="jurusan" value="<?= $mhs['jurusan']?>"></td>
         </tr>
         <tr>
             <td><label for="gambar">Gambar</label></td>

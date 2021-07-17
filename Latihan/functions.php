@@ -1,4 +1,5 @@
 <?php 
+
 $conn = mysqli_connect("localhost","root","","phpdasar");
 
 function query($query) {
@@ -11,7 +12,6 @@ function query($query) {
     return $rows;
 }
 
-
 function tambah($data) {
     global $conn;
     $nrp = htmlspecialchars($data["nrp"]);
@@ -22,11 +22,11 @@ function tambah($data) {
     //upload gambar
     $gambar = upload();
     if(!$gambar) {
-         return false;
+        return false;
     }
 
     $query = "INSERT INTO mahasiswa VALUES
-            ('','$nama','$nrp','$email', '$jurusan', '$gambar')";
+            ('','$nama','$nrp', '$email', '$jurusan', '$gambar')";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
@@ -93,7 +93,6 @@ function edit($data) {
     $nama = htmlspecialchars($data['nama']);
     $email = htmlspecialchars($data['email']);
     $jurusan = htmlspecialchars($data['jurusan']);
-    $gambar = htmlspecialchars($data['gambar']);
 
     $gambarLama = htmlspecialchars($data["gambarLama"]);
     //cek apakah user pilih gambar baru atau tidak
@@ -118,12 +117,23 @@ function edit($data) {
     return mysqli_affected_rows($conn);
 }
 
+// function cari($keyword) {
+//     $query = "SELECT * FROM mahasiswa WHERE
+//             nrp LIKE '%$keyword%' OR
+//             nama LIKE '%$keyword%' OR
+//             email LIKE '%$keyword%' OR
+//             jurusan LIKE '%$keyword%'
+//             ";
+
+//             return query($query);
+// }
+
 function cari($keyword) {
     $query = "SELECT * FROM mahasiswa WHERE
             nrp LIKE '%$keyword%' OR
             nama LIKE '%$keyword%' OR
             email LIKE '%$keyword%' OR
-            jurusan LIKE '%$keyword%'
+            jurusan LIKE '%$keyword%' OR
             ";
 
             return query($query);
