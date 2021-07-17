@@ -11,6 +11,7 @@ function query($query) {
     return $rows;
 }
 
+
 function tambah($data) {
     global $conn;
     $nrp = htmlspecialchars($data["nrp"]);
@@ -25,7 +26,7 @@ function tambah($data) {
     }
 
     $query = "INSERT INTO mahasiswa VALUES
-        ('','$nama','$nrp','$email','$jurusan','$gambar')";
+            ('','$nama','$nrp','$email', '$jurusan', '$gambar')";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
