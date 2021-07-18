@@ -39,37 +39,38 @@ function upload() {
     $tmpName = $_FILES['gambar']['tmp_name'];
 
     //pengecekan jika gambar belum diupload
-    if($error === 4) {
+    if( error === 4 ) {
         echo 
-        "<script>
-            alert('Upload gambar terlebih dahulu');
-        </script>";
-        return false;
+            "<script>
+                alert('Upload gambar terlebih dahulu');
+            </script>";
+
+            return false;
     }
 
     //pengecekan hanya gambar yang boleh diupload
-    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambarValid = ['jpg','jpeg','png'];
     $ekstensiGambar = explode('.', $namaFile);
     $ekstensiGambar = strtolower(end($ekstensiGambar));
 
     if(!in_array($ekstensiGambar, $ekstensiGambarValid)) {
         echo 
         "<script>
-            alert('Yang anda upload bukan gambar');
+            alert('Yang Anda upload bukan gambar!');
         </script>";
         return false;
-    }
+    } 
 
-    //jika file terlalu besar
+    // //jika file terlalu besar
     if($ukuranFile > 1000000) {
+        echo 
         "<script>
-            alert('Ukuran gambar terlalu besar');
+            alert('Ukuran File terlalu besar');
         </script>";
         return false;
     }
 
     //lolos pengecekan, gambar siap diupload
-    //generate nama gambar baru
     $namaFileBaru = uniqid();
     $namaFileBaru .= '.';
     $namaFileBaru .= $ekstensiGambar;
@@ -117,23 +118,12 @@ function edit($data) {
     return mysqli_affected_rows($conn);
 }
 
-// function cari($keyword) {
-//     $query = "SELECT * FROM mahasiswa WHERE
-//             nrp LIKE '%$keyword%' OR
-//             nama LIKE '%$keyword%' OR
-//             email LIKE '%$keyword%' OR
-//             jurusan LIKE '%$keyword%'
-//             ";
-
-//             return query($query);
-// }
-
 function cari($keyword) {
     $query = "SELECT * FROM mahasiswa WHERE
             nrp LIKE '%$keyword%' OR
             nama LIKE '%$keyword%' OR
             email LIKE '%$keyword%' OR
-            jurusan LIKE '%$keyword%' OR
+            jurusan LIKE '%$keyword%'
             ";
 
             return query($query);
