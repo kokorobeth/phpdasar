@@ -14,6 +14,7 @@ function query($query)
     return $rows;
 }
 
+
 function tambah($data)
 {
     global $conn;
@@ -91,8 +92,24 @@ function hapus($id)
     return mysqli_affected_rows($conn);
 }
 
-function ubah($data)
-{
+// function ubah($data)
+// {
+//     global $conn;
+//     $id = $data["id"];
+//     $nrp = htmlspecialchars($data["nrp"]);
+//     $nama = htmlspecialchars($data["nama"]);
+//     $email = htmlspecialchars($data["email"]);
+//     $jurusan = htmlspecialchars($data["jurusan"]);
+
+//     $gambarLama = htmlspecialchars($data["gambarLama"]);
+//     //cek apakah user pilih gambar baru atau tidak
+//     if ($_FILES['gambar']['error'] === 4) {
+//         $gambar = $gambarLama;
+//     } else {
+//         $gambar = upload();
+//     }
+
+function ubah($data) {
     global $conn;
     $id = $data["id"];
     $nrp = htmlspecialchars($data["nrp"]);
@@ -101,9 +118,9 @@ function ubah($data)
     $jurusan = htmlspecialchars($data["jurusan"]);
 
     $gambarLama = htmlspecialchars($data["gambarLama"]);
-    //cek apakah user pilih gambar baru atau tidak
-    if ($_FILES['gambar']['error'] === 4) {
-        $gambar = $gambarLama;
+    //cek user pilih gmabar / tidak
+    if ($_FILES["gambar"]["error"] === 4) {
+        $gambar = $gambarLama; 
     } else {
         $gambar = upload();
     }
@@ -116,7 +133,7 @@ function ubah($data)
     email = '$email',
     jurusan = '$jurusan',
     gambar = '$gambar'
-    WHERE id = $id
+    WHERE id = '$id'
     ";
 
     mysqli_query($conn, $query);
