@@ -80,12 +80,13 @@ function upload() {
     return $namaFileBaru;
 }
 
-function hapus($id) {
-    global $conn;
-    mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = '$id'");
+// function hapus($id) {
+//     global $conn;
+//     mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = '$id'");
 
-    return mysqli_affected_rows($conn);
-}
+//     return mysqli_affected_rows($conn);
+// }
+
 
 function edit($data) {
     global $conn;
