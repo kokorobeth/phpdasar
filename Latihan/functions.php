@@ -48,7 +48,7 @@ function upload() {
             return false;
     }
 
-    //pengecekan hanya gambar yang boleh diupload
+    pengecekan hanya gambar yang boleh diupload
     $ekstensiGambarValid = ['jpg','jpeg','png'];
     $ekstensiGambar = explode('.', $namaFile);
     $ekstensiGambar = strtolower(end($ekstensiGambar));
@@ -80,13 +80,12 @@ function upload() {
     return $namaFileBaru;
 }
 
-// function hapus($id) {
-//     global $conn;
-//     mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = '$id'");
+function hapus($id) {
+    global $conn;
+    mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = '$id'");
 
-//     return mysqli_affected_rows($conn);
-// }
-
+    return mysqli_affected_rows($conn);
+}
 
 function edit($data) {
     global $conn;
@@ -129,5 +128,6 @@ function cari($keyword) {
 
             return query($query);
 }
+
 
 ?>
